@@ -97,7 +97,7 @@ var controller = (function(budgetCtrl, UICtrl) { //IIFE
     
     
     return { //public
-        init: function() {
+        init: function() { //initialization function
             console.log('Application "Budgety" has started.');
             UICtrl.displayMonth();
             UICtrl.displayBudget({
@@ -113,4 +113,4 @@ var controller = (function(budgetCtrl, UICtrl) { //IIFE
 })(budgetController, UIController); //calling the function
 
 
-controller.init();
+controller.init(); //without this, nothing will happen
