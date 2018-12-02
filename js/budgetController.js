@@ -1,4 +1,4 @@
-// BUDGET CONTROLLER ***
+// BUDGET/DATA CONTROLLER
 var budgetController = (function() {
     
     //Expense function constructor

@@ -1,20 +1,20 @@
 // GLOBAL APP CONTROLLER
-var controller = (function(budgetCtrl, UICtrl) {
+var controller = (function(budgetCtrl, UICtrl) { //IIFE
     
-    var setupEventListeners = function() {
-        var DOM = UICtrl.getDOMstrings();
+    var setupEventListeners = function() { //function for all event listeners
+        var DOM = UICtrl.getDOMstrings(); //to get all DOM strings/elements
         
-        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
+        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem); //for adding an item
 
-        document.addEventListener('keypress', function(event) {
-            if (event.keyCode === 13 || event.which === 13) {
+        document.addEventListener('keypress', function(event) { //'event' is there so we can call 'keyCode' function on it 
+            if (event.keyCode === 13 || event.which === 13) { //'13' is for 'enter'; 'event.which' is for older browsers
                 ctrlAddItem();
             }
         });
         
-        document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem);
+        document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem); //for deleting an item
         
-        document.querySelector(DOM.inputType).addEventListener('change', UICtrl.changedType);        
+        document.querySelector(DOM.inputType).addEventListener('change', UICtrl.changedType); //for changing type - income (+) or expense (-)
     };
     
     
@@ -44,7 +44,7 @@ var controller = (function(budgetCtrl, UICtrl) {
     };
     
     
-    var ctrlAddItem = function() {
+    var ctrlAddItem = function() { //function for adding an item
         var input, newItem;
         
         //1. get the field input data
@@ -69,7 +69,7 @@ var controller = (function(budgetCtrl, UICtrl) {
     };
     
     
-    var ctrlDeleteItem = function(event) {
+    var ctrlDeleteItem = function(event) { //function for deleting an item
         var itemID, splitID, type, ID;
         
         itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
@@ -96,9 +96,9 @@ var controller = (function(budgetCtrl, UICtrl) {
     };
     
     
-    return {
+    return { //public
         init: function() {
-            console.log('Application has started.');
+            console.log('Application "Budgety" has started.');
             UICtrl.displayMonth();
             UICtrl.displayBudget({
                 budget: 0,
@@ -106,11 +106,11 @@ var controller = (function(budgetCtrl, UICtrl) {
                 totalExp: 0,
                 percentage: -1
             });
-            setupEventListeners();
+            setupEventListeners(); //calling function for all event listeners
         }
     };
     
-})(budgetController, UIController);
+})(budgetController, UIController); //calling the function
 
 
 controller.init();
