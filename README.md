@@ -1,2 +1,3 @@
 # budgety
-Monthly budget calculator app, made in JS
+
+Monthly budget calculator app in Javascript.
